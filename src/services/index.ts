@@ -57,16 +57,18 @@ function createAxios(requestConfig: RequestConfig): AxiosInstance {
   return axiosInstance;
 }
 
-function camelCase(str) {
-  return str
-    .replace('/codes/', '')
-    .replace(/\b[/-]([a-z])/g, (_, char) => char.toUpperCase());
-}
-
 const axiosClient = createAxios({
   baseURL: '',
 });
 
 export const axiosGeneralAPI = () => {
   return axiosClient;
+};
+
+const mockClient = createAxios({
+  baseURL: '',
+});
+
+export const axiosTestAPI = () => {
+  return mockClient;
 };

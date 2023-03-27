@@ -1,6 +1,6 @@
 import MockAdapter from 'axios-mock-adapter';
-import { axiosGeneralAPI } from 'src/services';
+import { axiosTestAPI } from 'src/services';
 
-const mock = new MockAdapter(axiosGeneralAPI());
+const mock = new MockAdapter(axiosTestAPI());
 
 export default mock;
