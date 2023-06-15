@@ -15,17 +15,15 @@ import HeaderContainer from "containers/HeaderContainer/HeaderContainer";
 
 import { useAuth } from "hooks/useAuth";
 
-import ButtonCircle from "components/Button/ButtonCircle";
-import { Icon } from "@iconify/react";
-import About from "pages/about/About";
 import Home from "pages/home/Home";
+import Order from "pages/order/Order";
 
 export const pages: Page[] = [
   { path: "/", exact: true, component: Home },
 
   { path: "/#", exact: true, component: Home },
 
-  { path: "/about", component: About },
+  { path: "/order", component: Order },
 ];
 
 const WithProtectedRoute = ({ component: Component, ...rest }: any) => {
