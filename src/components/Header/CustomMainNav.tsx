@@ -43,6 +43,8 @@ const CustomMainNav: FC<MainNav2LoggedProps> = () => {
     };
   }, []);
 
+  const history = useHistory();
+
   return (
     <>
       <div className={`nc-MainNav nc-MainNav2 relative z-10 bg-neutral-100`}>
@@ -57,8 +59,22 @@ const CustomMainNav: FC<MainNav2LoggedProps> = () => {
 
           <div className="flex-shrink-0 flex items-center justify-end text-neutral-700 dark:text-neutral-100 space-x-1">
             <div className="flex items-center xl:flex space-x-2">
-              <ButtonThird sizeClass="px-6 py-2">매일성경</ButtonThird>
-              <ButtonPrimary sizeClass="px-6 py-2">주문하기</ButtonPrimary>
+              <ButtonThird
+                sizeClass="px-6 py-2"
+                onClick={() => {
+                  history.push("/bible");
+                }}
+              >
+                매일성경
+              </ButtonThird>
+              <ButtonPrimary
+                sizeClass="px-6 py-2"
+                onClick={() => {
+                  history.push("/order");
+                }}
+              >
+                주문하기
+              </ButtonPrimary>
 
               <div className="hidden sm:block flex-grow max-w-xs"></div>
               <div className="hidden sm:block "></div>

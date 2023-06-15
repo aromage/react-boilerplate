@@ -17,6 +17,7 @@ import { useAuth } from "hooks/useAuth";
 
 import Home from "pages/home/Home";
 import Order from "pages/order/Order";
+import Bible from "pages/bible/Bible";
 
 export const pages: Page[] = [
   { path: "/", exact: true, component: Home },
@@ -24,6 +25,7 @@ export const pages: Page[] = [
   { path: "/#", exact: true, component: Home },
 
   { path: "/order", component: Order },
+  { path: "/bible", component: Bible },
 ];
 
 const WithProtectedRoute = ({ component: Component, ...rest }: any) => {
