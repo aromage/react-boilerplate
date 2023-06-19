@@ -1,4 +1,3 @@
-import React, { Suspense, useState } from "react";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
@@ -6,8 +5,7 @@ import ReactDOM from "react-dom/client";
 
 // STYLE
 import "./index.css";
-import "./styles/index.scss";
-import "./fonts/line-awesome-1.3.0/css/line-awesome.css";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "context/AuthContext";
 import { CookiesProvider } from "react-cookie";

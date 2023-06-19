@@ -1,24 +1,10 @@
-import React, { ReactNode } from "react";
-import {
-  BrowserRouter,
-  Switch,
-  Route,
-  Redirect,
-  useHistory,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Page } from "./types";
 import ScrollToTop from "./ScrollToTop";
-import Footer from "components/Footer/Footer";
-import Page404 from "containers/Page404/Page404";
-import HeaderContainer from "containers/HeaderContainer/HeaderContainer";
 
-import { useAuth } from "hooks/useAuth";
-
-import ButtonCircle from "components/Button/ButtonCircle";
-import { Icon } from "@iconify/react";
 import About from "pages/about/About";
 import Home from "pages/home/Home";
+import Page404 from "pages/error/Page404";
 
 export const pages: Page[] = [
   { path: "/", exact: true, component: Home },
@@ -29,30 +15,28 @@ export const pages: Page[] = [
 ];
 
 const WithProtectedRoute = ({ component: Component, ...rest }: any) => {
-  const auth = useAuth();
-  const history = useHistory();
-  const location = useLocation();
+  const auth = true;
 
   return (
     <Route
       {...rest}
       render={(props) => {
-        if (auth.isAuthenticated()) {
+        if (auth) {
           //로그인 상태 판단
           return (
             <>
-              <HeaderContainer />
+              {/* <HeaderContainer /> */}
               <div className="custom-h-screen">
                 <Component {...props} />
               </div>
-              <Footer />
+              {/* <Footer /> */}
             </>
           );
         } else {
           return (
             <Redirect
               to={{
-                pathname: "/login",
+                pathname: "/",
                 state: {
                   from: props.location,
                 },

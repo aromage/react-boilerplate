@@ -2,8 +2,6 @@
 import { conforms } from "lodash";
 import { createContext, useEffect, useState, ReactNode } from "react";
 
-import { useUserStore } from "store/role";
-
 export type ErrCallbackType = (err: { [key: string]: string }) => void;
 
 export type AuthValuesType = {
