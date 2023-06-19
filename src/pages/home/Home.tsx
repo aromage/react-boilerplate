@@ -1,5 +1,6 @@
 import {
   Button,
+  Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
@@ -8,7 +9,6 @@ import {
   useTheme,
 } from "@mui/material";
 import { Fragment, useState } from "react";
-import { Dialog, Menu } from "@headlessui/react";
 
 const Home = () => {
   const [open, setOpen] = useState(false);
@@ -33,46 +33,10 @@ const Home = () => {
   return (
     <div className="container">
       Home
-      <Menu>
-        <Menu.Button>Options</Menu.Button>
-        <Menu.Items>
-          {links.map((link) => (
-            /* Use the `active` state to conditionally style the active item. */
-            <Menu.Item key={link.href} as={Fragment}>
-              {({ active }) => (
-                <a
-                  href={link.href}
-                  className={`${
-                    active ? "bg-blue-500 text-white" : "bg-white text-black"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              )}
-            </Menu.Item>
-          ))}
-        </Menu.Items>
-      </Menu>
       <Button variant="outlined" onClick={handleClickOpen}>
         Open simple dialog
       </Button>
-      <Dialog open={open} onClose={() => setOpen(false)}>
-        <Dialog.Panel>
-          <Dialog.Title>Deactivate account</Dialog.Title>
-          <Dialog.Description>
-            This will permanently deactivate your account
-          </Dialog.Description>
-
-          <p>
-            Are you sure you want to deactivate your account? All of your data
-            will be permanently removed. This action cannot be undone.
-          </p>
-
-          <button onClick={() => setOpen(false)}>Deactivate</button>
-          <button onClick={() => setOpen(false)}>Cancel</button>
-        </Dialog.Panel>
-      </Dialog>
-      {/* <Dialog
+      <Dialog
         fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
@@ -95,7 +59,7 @@ const Home = () => {
             Agree
           </Button>
         </DialogActions>
-      </Dialog> */}
+      </Dialog>
     </div>
   );
 };
